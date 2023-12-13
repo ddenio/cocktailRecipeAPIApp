@@ -24,19 +24,30 @@ function getRandomDrink() {
 
     getRandomDrink()
       .then(tastyDrink => {
-        document.querySelector('ul').innerText = "";
-        document.querySelector('h2').innerText = tastyDrink.strDrink;
+        document.querySelector('#cocktailGlass').innerText = "";
+        document.querySelector('#ingredientsList').innerText = "";
+        document.querySelector('#drinkName').innerText = tastyDrink.strDrink;
         document.querySelector('img').src = tastyDrink.strDrinkThumb;
-        document.querySelector('h3').innerText = tastyDrink.strInstructions;
+        document.querySelector('#instructions').innerText = tastyDrink.strInstructions;
+        document.querySelector('#instructionsTitle').innerText = "Instructions";
+        document.querySelector('#cocktailGlass').innerText = `Type of Glass used for cocktail:  ${tastyDrink.strGlass}`;
         console.log(`tasty drink is ${tastyDrink.idDrink}`)
         for (let i = 1; i<= 15; i++){
             let li = document.createElement("li");
             let tasty = tastyDrink[`strIngredient${i}`]
+            let measure = tastyDrink[`strMeasure${i}`]
             if(tasty == null){
               break
             }else {
-              li.textContent= tasty
-              document.querySelector('ul').appendChild(li)
+              if(measure == null){
+                document.querySelector('#ingredients').innerText = `Ingredients:`
+                li.textContent= tasty
+                document.querySelector('ul').appendChild(li)
+              }else {
+                document.querySelector('#ingredients').innerText = `Ingredients:`
+                li.textContent=tasty + " " + "-" + " " + measure
+                document.querySelector('ul').appendChild(li)
+              }
             }
         }
         
@@ -44,22 +55,34 @@ function getRandomDrink() {
       intervalId = window.setInterval(function () {
         getRandomDrink()
           .then(tastyDrink => {
-            document.querySelector('ul').innerText = "";
-            document.querySelector('h2').innerText = tastyDrink.strDrink;
+            document.querySelector('#ingredients').innerText = ""
+            document.querySelector('#cocktailGlass').innerText = "";
+            document.querySelector('#ingredientsList').innerText = "";
+            document.querySelector('#drinkName').innerText = tastyDrink.strDrink;
             document.querySelector('img').src = tastyDrink.strDrinkThumb;
-            document.querySelector('h3').innerText = tastyDrink.strInstructions;
+            document.querySelector('#instructions').innerText = tastyDrink.strInstructions;
+            document.querySelector('#instructionsTitle').innerText = "Instructions";
+            document.querySelector('#cocktailGlass').innerText = `Type of Glass used for cocktail:  ${tastyDrink.strGlass}`;
             for (let i = 1; i<= 15; i++){
               let li = document.createElement("li");
               let tasty = tastyDrink[`strIngredient${i}`]
+              let measure = tastyDrink[`strMeasure${i}`]
               if(tasty == null){
                 break
               }else {
-                li.textContent= tasty
-                document.querySelector('ul').appendChild(li)
+                if(measure == null){
+                  document.querySelector('#ingredients').innerText = `Ingredients:`
+                  li.textContent= tasty
+                  document.querySelector('ul').appendChild(li)
+                }else {
+                  document.querySelector('#ingredients').innerText = `Ingredients:`
+                  li.textContent=tasty + " " + "-" + " " + measure
+                  document.querySelector('ul').appendChild(li)
+                }
               }
             }
           });
-      }, 4000);
+      }, 5000);
     
       isIntervalRunning = true;
   }
