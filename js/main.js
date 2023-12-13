@@ -24,38 +24,40 @@ function getRandomDrink() {
 
     getRandomDrink()
       .then(tastyDrink => {
+        document.querySelector('ul').innerText = "";
         document.querySelector('h2').innerText = tastyDrink.strDrink;
         document.querySelector('img').src = tastyDrink.strDrinkThumb;
         document.querySelector('h3').innerText = tastyDrink.strInstructions;
-        // let ul = document.getElementById("ingredientsList")
-        
-        // for (let i = 1; i<= 12; i++){
-        //     let ul = document.getElementById("ingredientsList")
-        //     let li = document.createElement("li");
-        //     let ingredient = "strIngredient" + i
-        //     let ingredient2 = tastyDrink.ingredient
-            
-        //     li.appendChild(document.createTextNode(tastyDrink.strIngredient1))
-        //     ul.appendChild(li);
-        // }
-        
+        console.log(`tasty drink is ${tastyDrink.idDrink}`)
+        for (let i = 1; i<= 15; i++){
+            let li = document.createElement("li");
+            let tasty = tastyDrink[`strIngredient${i}`]
+            if(tasty == null){
+              break
+            }else {
+              li.textContent= tasty
+              document.querySelector('ul').appendChild(li)
+            }
+        }
         
       });
       intervalId = window.setInterval(function () {
         getRandomDrink()
           .then(tastyDrink => {
+            document.querySelector('ul').innerText = "";
             document.querySelector('h2').innerText = tastyDrink.strDrink;
             document.querySelector('img').src = tastyDrink.strDrinkThumb;
             document.querySelector('h3').innerText = tastyDrink.strInstructions;
-            // for (let i = 1; i<= 12; i++){
-            //     let ul = document.getElementById("ingredientsList")
-            //     let li = document.createElement("li");
-            //     let ingredient = "strIngredient" + i
-            //     let ingredient2 = tastyDrink.ingredient
-                
-            //     li.appendChild(document.createTextNode(tastyDrink.strIngredient1))
-            //     ul.appendChild(li);
-            // }
+            for (let i = 1; i<= 15; i++){
+              let li = document.createElement("li");
+              let tasty = tastyDrink[`strIngredient${i}`]
+              if(tasty == null){
+                break
+              }else {
+                li.textContent= tasty
+                document.querySelector('ul').appendChild(li)
+              }
+            }
           });
       }, 4000);
     
@@ -72,59 +74,6 @@ function getRandomDrink() {
 
   document.querySelector('#startbutton').addEventListener('click', intervalFunction);
   document.querySelector('#stopbutton').addEventListener('click', stopInterval);
-
-
-
-
-// function intervalFunction() {
-
-//  window.setInterval(function(){
-//     let drink = document.querySelector('input').value;
-//     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
-//     .then(res => res.json())  //parse response as JSON
-//     .then(data => {
-//         console.log(data)
-//         console.log(data.drinks.length)
-//         let randomNum = Math.floor(Math.random() * data.drinks.length)
-//         let tastyDrink = data.drinks[randomNum];
-//         document.querySelector('h2').innerText = tastyDrink.strDrink;
-//         document.querySelector('img').src = tastyDrink.strDrinkThumb;  
-//         document.querySelector('h3').innerText = tastyDrink.strInstructions;  
-//     })
-//     .catch(err => {
-//         console.log(`error ${err}`)
-//     });
-//   }, 4000);
-
-// }
-
-// document.querySelector('#startbutton').addEventListener('click', intervalFunction)  //NO PARENTHESIS AFTER OUR FUNCTION CALL HERE
-
-
-
-
-
-
-
-// function getInput() {
-    
-//     let drink = document.querySelector('input').value;
-//     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
-//     .then(res => res.json())  //parse response as JSON
-//     .then(data => {
-//         console.log(data)
-//         console.log(data.drinks.length)
-//         let randomNum = Math.floor(Math.random() * data.drinks.length)
-//         let tastyDrink = data.drinks[randomNum];
-//         document.querySelector('h2').innerText = tastyDrink.strDrink;
-//         document.querySelector('img').src = tastyDrink.strDrinkThumb;  
-//         document.querySelector('h3').innerText = tastyDrink.strInstructions;  
-//     })
-//     .catch(err => {
-//         console.log(`error ${err}`)
-//     });
-    
-// }
 
 
 
