@@ -1,0 +1,75 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+img{
+  display: block;
+  margin: 0 auto;
+  height: 300px;
+}
+
+h1, input, button, h2, h3, form {
+  text-align: center;
+
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background: radial-gradient(rgba(0,0,0, 0.7) 60%, transparent), url('images/barback.jpg') no-repeat center center fixed;
+  /* background: url('images/barback.jpg') no-repeat center center fixed;*/
+  background-size:cover; 
+}
+
+h1, h2,h3, ul{
+  color:white;
+}
+
+ul{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 20%;
+  margin: 0 auto;
+}
+
+#instructions{
+  width:50%;
+  margin: 0 auto;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+li{
+  list-style-type: circle;
+}
+
+form{
+  margin-bottom: 80px;
+}
+
+img{
+  margin-bottom: 60px;
+}
+
+#cocktailGlass{
+  margin-bottom: 15px;
+}
+
+#ingredientsList{
+  margin-bottom: 40px;
+}
+
+/* img{
+  border:4px solid white;
+  border-radius:2px;
+} */

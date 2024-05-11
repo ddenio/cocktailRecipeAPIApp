@@ -28,9 +28,11 @@ function getRandomDrink() {
         document.querySelector('#ingredientsList').innerText = "";
         document.querySelector('#drinkName').innerText = tastyDrink.strDrink;
         document.querySelector('img').src = tastyDrink.strDrinkThumb;
+        document.querySelector('img').style.border = '6px ridge rgba(7,4,4)';
+        document.querySelector('img').style.borderRadius = '4px';
         document.querySelector('#instructions').innerText = tastyDrink.strInstructions;
         document.querySelector('#instructionsTitle').innerText = "Instructions";
-        document.querySelector('#cocktailGlass').innerText = `Type of Glass used for cocktail:  ${tastyDrink.strGlass}`;
+        document.querySelector('#cocktailGlass').innerText = `Type of Glass:  ${tastyDrink.strGlass}`;
         console.log(`tasty drink is ${tastyDrink.idDrink}`)
         for (let i = 1; i<= 15; i++){
             let li = document.createElement("li");
@@ -60,9 +62,11 @@ function getRandomDrink() {
             document.querySelector('#ingredientsList').innerText = "";
             document.querySelector('#drinkName').innerText = tastyDrink.strDrink;
             document.querySelector('img').src = tastyDrink.strDrinkThumb;
+            document.querySelector('img').style.border = '8px ridge rgba(44,18,4,255)';
+        document.querySelector('img').style.borderRadius = '4px';
             document.querySelector('#instructions').innerText = tastyDrink.strInstructions;
             document.querySelector('#instructionsTitle').innerText = "Instructions";
-            document.querySelector('#cocktailGlass').innerText = `Type of Glass used for cocktail:  ${tastyDrink.strGlass}`;
+            document.querySelector('#cocktailGlass').innerText = `Type of Glass:  ${tastyDrink.strGlass}`;
             for (let i = 1; i<= 15; i++){
               let li = document.createElement("li");
               let tasty = tastyDrink[`strIngredient${i}`]
