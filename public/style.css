@@ -16,7 +16,7 @@ img{
   height: 300px;
 }
 
-h1, input, button, h2, h3, form {
+h1, input, button, h2, h3, form,h4 {
   text-align: center;
 
 }
@@ -28,7 +28,7 @@ body {
   background-size:cover; 
 }
 
-h1, h2,h3, ul{
+h1, h2,h3,h4, ul{
   color:white;
 }
 
@@ -54,7 +54,7 @@ li{
 }
 
 form{
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 img{
